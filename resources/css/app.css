@@ -1,0 +1,107 @@
+@import '@fontsource/big-shoulders-display/latin-700';
+@import '@fontsource/big-shoulders-display/latin-900';
+@import '@fontsource/big-shoulders-display/latin-ext-900';
+@import '@fontsource-variable/figtree';
+@import 'tailwindcss';
+
+@source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
+
+/*
+ * Loja do Bem — identidade tirada das artes do leilão:
+ * rosa "Loja do Bem", azul-marinho "Viver", papel claro de catálogo impresso.
+ */
+@theme {
+    --font-sans: 'Figtree Variable', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Big Shoulders Display', 'Figtree Variable', ui-sans-serif, sans-serif;
+
+    --color-papel: #f6f1ea;
+    --color-papel-2: #ece4d8;
+    --color-cartao: #fffdf9;
+    --color-linha: #dccfbf;
+    --color-tinta: #1b1d36;
+    --color-tinta-2: #57546a;
+    --color-marinho: #22307a;
+    --color-marinho-2: #18235c;
+    --color-rosa: #c8185f;
+    --color-rosa-2: #a10f4b;
+    --color-rosa-claro: #fbe3ec;
+    --color-sol: #f2b632;
+    --color-mata: #2b8a6e;
+
+    --ease-saida: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+    html {
+        -webkit-text-size-adjust: 100%;
+        scroll-behavior: smooth;
+        scroll-padding-top: 5.5rem;
+        background: var(--color-papel);
+        color: var(--color-tinta);
+        accent-color: var(--color-rosa);
+        caret-color: var(--color-rosa);
+    }
+
+    body {
+        font-family: var(--font-sans);
+        font-feature-settings: 'ss01';
+        -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+        background: var(--color-rosa);
+        color: #fff;
+    }
+
+    :focus-visible {
+        outline: 2.5px solid var(--color-marinho);
+        outline-offset: 3px;
+        border-radius: 6px;
+    }
+
+    a {
+        text-underline-offset: 0.2em;
+        text-decoration-thickness: 1.5px;
+    }
+
+    h1, h2, h3 {
+        text-wrap: balance;
+    }
+
+    html {
+        scrollbar-color: var(--color-linha) transparent;
+    }
+
+    [x-cloak] {
+        display: none !important;
+    }
+}
+
+@utility font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+    line-height: 0.92;
+}
+
+@utility numeros {
+    font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* O único momento animado: o coração do "tenho interesse" */
+@keyframes pulso-coracao {
+    0% { transform: scale(1); }
+    35% { transform: scale(1.32); }
+    65% { transform: scale(0.92); }
+    100% { transform: scale(1); }
+}
+
+.coracao-pulsa {
+    animation: pulso-coracao 420ms var(--ease-saida);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .coracao-pulsa { animation: none; }
+    *, *::before, *::after { transition-duration: 0.01ms !important; }
+}

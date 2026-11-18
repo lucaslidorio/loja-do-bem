@@ -1,0 +1,59 @@
+{
+  "node_modules/@fontsource-variable/figtree/files/figtree-latin-ext-wght-normal.woff2": {
+    "file": "assets/figtree-latin-ext-wght-normal-DCwSJGxG.woff2",
+    "src": "node_modules/@fontsource-variable/figtree/files/figtree-latin-ext-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/figtree/files/figtree-latin-wght-normal.woff2": {
+    "file": "assets/figtree-latin-wght-normal-D_ZTVpCC.woff2",
+    "src": "node_modules/@fontsource-variable/figtree/files/figtree-latin-wght-normal.woff2"
+  },
+  "node_modules/@fontsource/big-shoulders-display/files/big-shoulders-display-latin-700-normal.woff": {
+    "file": "assets/big-shoulders-display-latin-700-normal-CMi6UoP4.woff",
+    "src": "node_modules/@fontsource/big-shoulders-display/files/big-shoulders-display-latin-700-normal.woff"
+  },
+  "node_modules/@fontsource/big-shoulders-display/files/big-shoulders-display-latin-700-normal.woff2": {
+    "file": "assets/big-shoulders-display-latin-700-normal-KM2fueoL.woff2",
+    "src": "node_modules/@fontsource/big-shoulders-display/files/big-shoulders-display-latin-700-normal.woff2"
+  },
+  "node_modules/@fontsource/big-shoulders-display/files/big-shoulders-display-latin-900-normal.woff": {
+    "file": "assets/big-shoulders-display-latin-900-normal-DMT-1gsg.woff",
+    "src": "node_modules/@fontsource/big-shoulders-display/files/big-shoulders-display-latin-900-normal.woff"
+  },
+  "node_modules/@fontsource/big-shoulders-display/files/big-shoulders-display-latin-900-normal.woff2": {
+    "file": "assets/big-shoulders-display-latin-900-normal-CW8trzgu.woff2",
+    "src": "node_modules/@fontsource/big-shoulders-display/files/big-shoulders-display-latin-900-normal.woff2"
+  },
+  "node_modules/@fontsource/big-shoulders-display/files/big-shoulders-display-latin-ext-900-normal.woff": {
+    "file": "assets/big-shoulders-display-latin-ext-900-normal-DkuviPcI.woff",
+    "src": "node_modules/@fontsource/big-shoulders-display/files/big-shoulders-display-latin-ext-900-normal.woff"
+  },
+  "node_modules/@fontsource/big-shoulders-display/files/big-shoulders-display-latin-ext-900-normal.woff2": {
+    "file": "assets/big-shoulders-display-latin-ext-900-normal-HMld4L9H.woff2",
+    "src": "node_modules/@fontsource/big-shoulders-display/files/big-shoulders-display-latin-ext-900-normal.woff2"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-DEyGXq1F.css",
+    "name": "app",
+    "names": [
+      "app.css"
+    ],
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "assets": [
+      "assets/big-shoulders-display-latin-700-normal-KM2fueoL.woff2",
+      "assets/big-shoulders-display-latin-700-normal-CMi6UoP4.woff",
+      "assets/big-shoulders-display-latin-900-normal-CW8trzgu.woff2",
+      "assets/big-shoulders-display-latin-900-normal-DMT-1gsg.woff",
+      "assets/big-shoulders-display-latin-ext-900-normal-HMld4L9H.woff2",
+      "assets/big-shoulders-display-latin-ext-900-normal-DkuviPcI.woff",
+      "assets/figtree-latin-ext-wght-normal-DCwSJGxG.woff2",
+      "assets/figtree-latin-wght-normal-D_ZTVpCC.woff2"
+    ]
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-CXmo9dTI.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  }
+}

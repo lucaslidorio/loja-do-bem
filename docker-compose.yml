@@ -1,0 +1,90 @@
+# Ambiente local da Loja do Bem
+#
+#   docker compose up -d --build         loja em http://localhost:8080
+#   docker compose --profile s3 up -d    + MinIO (S3 local) em http://localhost:9001
+#
+# Detalhes no README, seção "Docker".
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+      args:
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
+    image: loja-do-bem-app
+    ports:
+      - "${APP_PORT:-8080}:80"
+    volumes:
+      - ./:/var/www/html
+    environment:
+      DB_HOST: mysql
+      DB_USERNAME: loja
+      DB_PASSWORD: loja
+      APP_URL: http://localhost:${APP_PORT:-8080}
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: loja_do_bem
+      MYSQL_USER: loja
+      MYSQL_PASSWORD: loja
+      MYSQL_ROOT_PASSWORD: root
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "${DB_PORT_HOST:-3307}:3306"   # para abrir no DBeaver/HeidiSQL: localhost:3307, usuário loja/loja
+    volumes:
+      - mysql:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uloja", "-ploja"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  # Vite com recarga automática enquanto você mexe no visual
+  node:
+    image: node:22-alpine
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      VITE_DOCKER: "1"
+    command: sh -c "npm install && npm run dev"
+    ports:
+      - "5173:5173"
+    profiles: ["front"]
+
+  # S3 local (opcional): testa o fluxo de imagens igual à produção
+  minio:
+    image: minio/minio:latest
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: loja
+      MINIO_ROOT_PASSWORD: loja-senha-local
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio:/data
+    profiles: ["s3"]
+
+  minio-bucket:
+    image: minio/mc:latest
+    depends_on:
+      - minio
+    entrypoint: >
+      sh -c "sleep 4 &&
+             mc alias set local http://minio:9000 loja loja-senha-local &&
+             mc mb -p local/loja-do-bem &&
+             mc anonymous set download local/loja-do-bem/lotes &&
+             mc anonymous set download local/loja-do-bem/artes &&
+             mc anonymous set download local/loja-do-bem/doadores"
+    profiles: ["s3"]
+
+volumes:
+  mysql:
+  minio:
