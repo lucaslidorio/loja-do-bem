@@ -15,11 +15,13 @@ use Illuminate\View\View;
 
 class LojaController extends Controller
 {
-    public function inicio(Request $request): View
+    public function inicio(Request $request): View|\Illuminate\Http\Response
     {
         $edicao = Edicao::atual();
 
-        abort_unless($edicao, 404, 'Nenhuma edição cadastrada ainda.');
+        if (! $edicao) {
+            return response()->view('loja.sem-edicao', status: 503);
+        }
 
         return $this->vitrine($request, $edicao);
     }

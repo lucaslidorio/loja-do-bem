@@ -30,10 +30,8 @@ done
 
 como_www "php artisan migrate --force"
 
-# Primeira vez com banco vazio: categorias e a 16ª edição
-if [ "$(como_www "php artisan tinker --execute='echo App\\Models\\Edicao::count();'" | tail -n1)" = "0" ]; then
-    como_www "php artisan db:seed --force"
-fi
+# Categorias e a 16ª edição. O seeder não duplica nada, então roda em toda subida.
+como_www "php artisan db:seed --force"
 
 [ -L public/storage ] || como_www "php artisan storage:link"
 mkdir -p storage/framework/{cache,sessions,views} storage/logs bootstrap/cache

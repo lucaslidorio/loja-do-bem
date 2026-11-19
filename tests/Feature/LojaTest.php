@@ -121,6 +121,25 @@ class LojaTest extends TestCase
         $this->assertNull(Lote::where('numero', 102)->first()->valor_arrematado);
     }
 
+    public function test_sem_edicao_mostra_aviso_em_vez_de_404(): void
+    {
+        $this->edicao->delete();
+
+        $this->get('/')->assertStatus(503)->assertSee('A loja abre em breve');
+    }
+
+    public function test_seeder_pode_rodar_varias_vezes_sem_duplicar(): void
+    {
+        $this->edicao->delete();
+
+        $this->seed();
+        $this->seed();
+
+        $this->assertSame(1, Edicao::count());
+        $this->assertSame(10, Categoria::count());
+        $this->get('/')->assertOk();
+    }
+
     public function test_filtro_por_categoria_aparece_na_vitrine(): void
     {
         $cat = Categoria::create(['nome' => 'Bebidas']);

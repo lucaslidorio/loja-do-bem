@@ -28,11 +28,20 @@ class DatabaseSeeder extends Seeder
             'Livros',
         ];
 
-        foreach ($categorias as $ordem => $nome) {
-            Categoria::updateOrCreate(['nome' => $nome], ['ordem' => $ordem]);
+        // Só preenche banco vazio: pode rodar sempre (o Docker roda a cada subida)
+        // sem desfazer o que a organização mudou pelo painel.
+        if (Categoria::doesntExist()) {
+            foreach ($categorias as $ordem => $nome) {
+                Categoria::create(['nome' => $nome, 'ordem' => $ordem]);
+            }
         }
 
-        Edicao::firstOrCreate(['slug' => '2026'], [
+        if (Edicao::exists()) {
+            return;
+        }
+
+        Edicao::create([
+            'slug' => '2026',
             'numero' => 16,
             'titulo' => '16º Leilão Direito de Viver',
             'cidade' => 'Rolim de Moura',
