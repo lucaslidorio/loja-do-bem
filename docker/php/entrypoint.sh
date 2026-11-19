@@ -11,8 +11,14 @@ if [ ! -f .env ]; then
     chown www-data:www-data .env
 fi
 
-if [ ! -f vendor/autoload.php ] || [ composer.json -nt vendor/autoload.php ]; then
+if [ ! -f vendor/autoload.php ]; then
     echo "» Instalando dependências do Composer (na primeira vez demora um pouco)"
+    como_www "COMPOSER_HOME=/tmp/composer composer install --no-interaction --prefer-dist"
+elif [ -f composer.lock ] && [ composer.json -nt composer.lock ]; then
+    # composer.json ganhou pacote novo depois do último lock: instala só o que mudou
+    echo "» composer.json mudou: instalando os pacotes novos"
+    como_www "COMPOSER_HOME=/tmp/composer composer update --minimal-changes --no-interaction --prefer-dist"
+elif [ composer.json -nt vendor/autoload.php ]; then
     como_www "COMPOSER_HOME=/tmp/composer composer install --no-interaction --prefer-dist"
 fi
 
