@@ -111,7 +111,23 @@
     animation: contagem-vira 380ms var(--ease-saida);
 }
 
+/* Telão: lote novo entra subindo; carimbo de arrematado bate na tela */
+@keyframes telao-entra {
+    from { opacity: 0; transform: translateY(3vh); }
+    to { opacity: 1; transform: none; }
+}
+
+@keyframes telao-carimbo {
+    0% { opacity: 0; transform: translateY(-50%) rotate(-6deg) scale(1.8); }
+    70% { opacity: 1; transform: translateY(-50%) rotate(-6deg) scale(0.96); }
+    100% { transform: translateY(-50%) rotate(-6deg) scale(1); }
+}
+
+.telao-entra { animation: telao-entra 600ms var(--ease-saida); }
+.telao-carimbo { animation: telao-carimbo 520ms var(--ease-saida) 250ms both; }
+
 @media (prefers-reduced-motion: reduce) {
+    .telao-entra, .telao-carimbo { animation: none; }
     html { scroll-behavior: auto; }
     .coracao-pulsa, .contagem-vira { animation: none; }
     *, *::before, *::after { transition-duration: 0.01ms !important; }

@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enums\StatusLote;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Edicao extends Model
@@ -15,7 +16,7 @@ class Edicao extends Model
         'numero', 'titulo', 'slug', 'cidade', 'uf', 'data_evento',
         'local_nome', 'local_endereco', 'maps_url', 'convite_info',
         'whatsapp', 'instagram', 'sobre', 'meta_arrecadacao',
-        'ativa', 'resultado_publico',
+        'ativa', 'resultado_publico', 'lote_atual_id',
     ];
 
     protected function casts(): array
@@ -32,7 +33,10 @@ class Edicao extends Model
     {
         // Só uma edição fica ativa por vez
         // Apaga os lotes um a um para remover também as imagens do S3
-        static::deleting(fn (Edicao $edicao) => $edicao->lotes()->each(fn (Lote $lote) => $lote->delete()));
+        static::deleting(function (Edicao $edicao) {
+            $edicao->forceFill(['lote_atual_id' => null])->saveQuietly();
+            $edicao->lotes()->each(fn (Lote $lote) => $lote->delete());
+        });
 
         static::saved(function (Edicao $edicao) {
             if ($edicao->ativa) {
@@ -49,6 +53,12 @@ class Edicao extends Model
     public function lotes(): HasMany
     {
         return $this->hasMany(Lote::class);
+    }
+
+    /** Lote que está no telão agora */
+    public function loteAtual(): BelongsTo
+    {
+        return $this->belongsTo(Lote::class, 'lote_atual_id');
     }
 
     public function scopeAtiva(Builder $query): void

@@ -26,6 +26,29 @@ e mostrar para a organização quais lotes estão mais procurados.
 - Painel inicial com total de lotes, lotes sem imagem, interesses, arrecadação e os lotes mais desejados
 - Edições: cada ano é uma edição; a marcada como "atual" é a que aparece na loja
 
+## No dia do leilão
+
+Tudo fica no painel, no grupo **No dia do leilão**.
+
+**Etiquetas com QR Code** (`/organizacao/etiquetas`)
+Folha A4 com 8 etiquetas: número do lote, nome, doador e um QR Code que abre a página do lote.
+Dá para filtrar por faixa (do lote 101 ao 150) ou selecionar lotes na lista do painel e usar a ação *Imprimir etiquetas*.
+**Imprima pelo site publicado:** impressas a partir do computador local, as etiquetas levam para `localhost`, que não abre no celular de ninguém.
+
+**Telão** (`/2026/telao`)
+Abra no computador ligado ao projetor e aperte **F** para tela cheia. Mostra o lote da vez (arte, número, nome, doador e valor de referência), o total arrecadado e quantos lotes já saíram.
+Sem lote selecionado, aparece a tela de espera com o QR Code da loja.
+A tela se atualiza sozinha a cada 2 segundos e não precisa de login.
+
+**Controle do telão** (`/organizacao/telao`, feito para o celular)
+Botões de lote anterior e próximo, "ir para o lote nº", registro do lance vencedor (o telão mostra o carimbo **Arrematado** e o total sobe na hora), desfazer arremate e tela de espera.
+Também dá para mandar um lote ao telão pela lista de lotes do painel (menu de ações, *Mostrar no telão*).
+
+**Página de resultado** (`/2026/resultado`)
+Mostra o total arrecadado, os lotes arrematados, os 5 maiores lances, a meta (se cadastrada) e o agradecimento aos doadores.
+Tem o botão **Baixar imagem para o Instagram** (1080×1350) e o de compartilhar no WhatsApp.
+Fica escondida até alguém ligar **Mostrar total arrecadado** na edição. Antes disso, só quem está logado vê, como prévia.
+
 ## Instalação na Hostinger (hospedagem compartilhada)
 
 ### 1. Antes de subir (na sua máquina)
@@ -179,10 +202,10 @@ php artisan serve
 ```
 Testes: `php artisan test`
 
-## Próximos passos sugeridos
-- QR Code impresso ao lado de cada lote no dia do leilão, levando à página do lote
-- "Modo telão": tela cheia com o lote da vez, para projetar durante o leilão
-- Página de resultado com o total arrecadado, para postar depois do evento
+## Ideias para depois
+- Sugerir a ordem do leilão a partir dos corações (mais procurados no horário de maior público)
+- Imagem pronta para cada doador postar ("Eu doei o lote 151")
+- Planilha final com arremates e doadores, para a prestação de contas
 
 ---
 Feito por voluntários. Toda a renda do leilão vai para o Hospital de Amor.

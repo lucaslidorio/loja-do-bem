@@ -11,8 +11,8 @@ if [ ! -f .env ]; then
     chown www-data:www-data .env
 fi
 
-if [ ! -f vendor/autoload.php ]; then
-    echo "» Instalando dependências do Composer (só na primeira vez, demora um pouco)"
+if [ ! -f vendor/autoload.php ] || [ composer.json -nt vendor/autoload.php ]; then
+    echo "» Instalando dependências do Composer (na primeira vez demora um pouco)"
     como_www "COMPOSER_HOME=/tmp/composer composer install --no-interaction --prefer-dist"
 fi
 

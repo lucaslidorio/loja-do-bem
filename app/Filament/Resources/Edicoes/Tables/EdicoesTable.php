@@ -30,6 +30,12 @@ class EdicoesTable
                     ->color('gray')
                     ->url(fn (Edicao $record) => route('edicao', $record))
                     ->openUrlInNewTab(),
+                Action::make('resultado')
+                    ->label('Resultado')
+                    ->icon(Heroicon::OutlinedTrophy)
+                    ->color('gray')
+                    ->url(fn (Edicao $record) => route('resultado', $record))
+                    ->openUrlInNewTab(),
                 EditAction::make(),
             ]);
     }

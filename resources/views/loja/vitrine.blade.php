@@ -92,6 +92,7 @@
             <div class="mt-10 flex flex-wrap items-baseline gap-x-4 gap-y-1 rounded-2xl border-2 border-mata/30 bg-cartao px-6 py-5">
                 <span class="font-display text-5xl font-black text-mata numeros">{{ \App\Models\Lote::reais($arrecadado) }}</span>
                 <span class="text-tinta-2">arrecadados para o Hospital de Amor Amazônia nesta edição. Obrigado a cada doador e a cada arrematante.</span>
+                <a href="{{ route('resultado', $edicao) }}" class="font-semibold text-rosa underline">Ver o resultado completo</a>
             </div>
         @endif
     </section>

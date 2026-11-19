@@ -119,6 +119,13 @@ class LotesTable
                     }),
                 ActionGroup::make([
                     EditAction::make(),
+                    Action::make('telao')
+                        ->label('Mostrar no telão')
+                        ->icon(Heroicon::OutlinedTv)
+                        ->action(function (Lote $record) {
+                            $record->edicao->update(['lote_atual_id' => $record->getKey()]);
+                            Notification::make()->title("Lote {$record->numero} está no telão")->success()->send();
+                        }),
                     Action::make('site')
                         ->label('Ver na loja')
                         ->icon(Heroicon::OutlinedArrowTopRightOnSquare)
@@ -135,6 +142,13 @@ class LotesTable
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
+                    BulkAction::make('etiquetas')
+                        ->label('Imprimir etiquetas')
+                        ->icon(Heroicon::OutlinedQrCode)
+                        ->action(fn (Collection $records, $livewire) => $livewire->js(
+                            'window.open('.json_encode(route('organizacao.etiquetas', ['ids' => $records->modelKeys() ? implode(',', $records->modelKeys()) : ''])).', "_blank")'
+                        ))
+                        ->deselectRecordsAfterCompletion(),
                     BulkAction::make('publicar')
                         ->label('Publicar no site')
                         ->icon(Heroicon::OutlinedEye)

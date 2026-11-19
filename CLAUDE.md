@@ -17,6 +17,9 @@ O site serve para divulgar os lotes e engajar (compartilhar no WhatsApp, marcar 
 - **Edição** (`Edicao`): um leilão por ano. O `slug` é o ano (ex.: `2026`) e aparece na URL. Só uma fica `ativa`; ela é a página inicial.
 - **Lote** (`Lote`): pertence a uma edição; URL `/{ano}/lote/{numero}-{slug}`. Tem `imagem_path` (foto) e `arte_path` (card de divulgação, usado na prévia do WhatsApp).
 - **Categoria** e **Doador** valem para todas as edições.
+- **Telão**: `edicoes.lote_atual_id` é o lote projetado; `/{ano}/telao` (público, consulta `/{ano}/telao/estado` a cada 2s) e o controle em `/organizacao/telao` (login).
+- **Etiquetas** (`/organizacao/etiquetas`) com QR Code via `App\Support\QrCode` (bacon/bacon-qr-code, SVG).
+- **Resultado** (`/{ano}/resultado`): público só com `resultado_publico`; logado vê prévia.
 - **Interesse**: o coração da loja. Visitante anônimo identificado por cookie (`IdentificaVisitante`), contado em `lotes.interesses_count`.
 - Imagens: `Midia::salvar()` grava `{pasta}/{uuid}/full.webp`, `thumb.webp` e `og.jpg`; no banco fica só o `full.webp`. Grava sem ACL (buckets S3 novos não aceitam); leitura pública via bucket policy.
 
@@ -36,7 +39,7 @@ A identidade vem das artes do evento: rosa "Loja do Bem" (`--color-rosa`), azul-
 papel claro de catálogo (`--color-papel`). Títulos em Big Shoulders Display, texto em Figtree (fontes servidas pelo próprio site, via npm/fontsource).
 Tokens em `resources/css/app.css`. Ao mexer no visual, use a skill **impeccable** e respeite:
 nada de eyebrow/kicker acima de títulos, nada de texto em gradiente, ícones só do componente `<x-icone>` (Heroicons),
-um único momento animado (o coração) e `prefers-reduced-motion` respeitado.
+animação só onde tem função (o coração, os números da contagem regressiva, a troca de lote e o carimbo no telão, o total subindo) e `prefers-reduced-motion` sempre respeitado.
 
 ## Convenções
 
