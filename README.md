@@ -159,6 +159,9 @@ docker compose down                                       # para tudo (o banco f
 docker compose down -v                                    # para e APAGA o banco
 ```
 
+**Porta ocupada** (`port is already allocated`): suba em outra porta com `APP_PORT=8090 docker compose up -d`
+(e grave `APP_PORT=8090` no `.env` para não repetir). Para o MySQL, use `DB_PORT_HOST=3308`.
+
 Se seu usuário no WSL não tiver UID 1000 (veja com `id -u`), rode `UID=$(id -u) GID=$(id -g) docker compose up -d --build`.
 
 ## Rodar na sua máquina sem Docker
