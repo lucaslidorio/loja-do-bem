@@ -1,51 +1,107 @@
-numero;nome;categoria;doador;valor;destaque;revisar
-101;Caixa térmica 28L Soprano;Casa e cozinha;Casa & Roça Nova Estrela;170;;
-102;Chaleira com apito inox 3L;Casa e cozinha;Supermercado Vitória Nova Estrela;120;;
-103;Sela cutiana em couro;Agro e ferramentas;Agropecuária Vitória Nova Estrela;1000;;doador
-104;Bolsa Schutz tamanho único;Moda e acessórios;Intimamente;560;;doador
-105;Relógio quadrado prateado;Relógios e joias;JM Joias;140;;doador
-106;Relógio em aço coração;Relógios e joias;JM Joias;100;;doador
-107;Relógio aro diamantado;Relógios e joias;JM Joias;110;;doador
-108;Faca artesanal cabo com cavalo;Agro e ferramentas;Entre Laços;350;;
-109;Kit terço e escapulário;Religiosos;Lindo Céu;40;;
-110;Kit mensagem diária, terço e dezena;Religiosos;Lindo Céu;35;;
-111;Terço colorido de pedra amora;Religiosos;Lindo Céu;35;;
-112;Kit pulseira, chaveiro e pingente;Religiosos;Lindo Céu;35;;
-113;Adorno Nossa Senhora de Guadalupe;Religiosos;Lindo Céu;70;;
-114;Capacete de ciclismo High One;Esporte e lazer;Celso Klipel;165;;doador
-115;Kit Tupperware: 1 pote 7.800ml e 1 pote 3.000ml;Casa e cozinha;Rosa Ricart;190;;doador
-116;Réplica relógio Rolex;Relógios e joias;Padre Celso;1200;;nome
-117;Camiseta da Seleção Brasileira autografada por 10 pentacampeões;Autografados e peças únicas;;imensurável;sim;doador
-118;Kit Loiro Iluminado;Beleza;Shampoo & Cia;90;;
-119;Kit Liso Perfeito;Beleza;Shampoo & Cia;90;;
-120;Kit Reconstrução Acidificante;Beleza;Shampoo & Cia;90;;
-121;Cachaça Ouro Xibolete;Bebidas;Elias Bins;250;;doador
-122;Cachaça Prata Xibolete;Bebidas;Elias Bins;180;;doador
-123;Vinho Cabernet Sauvignon Exportación;Bebidas;Padre Celso;65;;
-124;Chapéu tam. 60 autografado por Bruno & Marrone;Autografados e peças únicas;Asrolim;imensurável;sim;
-125;Chapéu Eldorado tam. 61 autografado por Ana Castela;Autografados e peças únicas;Asrolim;imensurável;sim;
-126;Gamela em madeira;Casa e cozinha;Castanha;100;;doador
-127;Fivela da 37ª Expoagro;Autografados e peças únicas;Asrolim;imensurável;sim;
-128;Kit de pimentas artesanais (9 unidades);Casa e cozinha;;130;;doador
-129;Bíblia Sagrada edição 40 anos;Religiosos;Padre Celso;150;;
-130;Aroma de ambientes;Casa e cozinha;Leila Paivas;35;;doador
-131;Conjunto colar e brinco semijoias;Relógios e joias;Márcia Rodrigues Joias Folheadas;620;;doador
-132;Kit 3 cafés naturais 250g;Casa e cozinha;Café Canindé;105;;
-133;Kit 2 cafés fermentados 250g;Casa e cozinha;Café Canindé;90;;
-134;Caneca térmica Duty 700ml (laranja);Casa e cozinha;Mercado Fortaleza;35;;doador
-135;Caneca térmica Duty 700ml (preta);Casa e cozinha;Mercado Fortaleza;35;;doador
-136;Caneca térmica Duty 1 litro;Casa e cozinha;Mercado Fortaleza;60;;doador
-137;Bicicleta Cairu aro 26 feminina Gênova;Esporte e lazer;Edite Alves de Medeiros;600;;doador
-138;Sandália Carmen Steffens bege tam. 37;Moda e acessórios;Profª Marinalva Fernandes;290;;doador
-139;Tênis Democrata tam. 39;Moda e acessórios;G Office;400;;doador
-140;Kit Pepete e cinto Moleca tam. 38;Moda e acessórios;Mania de Moleca;240;;doador
-141;Kit com 2 chaveiros;Moda e acessórios;Entre Folhas;60;;doador
-142;Perfume Wepink Latina 100ml;Beleza;Pedro Luiz Pelosi;160;;doador
-143;2 livros "O Parque dos Lobos", de Henrique Prata;Livros;Hospital de Amor;150;;
-144;Guirlanda personalizada Direito de Viver;Casa e cozinha;Helena Amanova;200;;doador
-145;Kit relação moto Fan 125 (2009 a 2013);Agro e ferramentas;Motobrás;140;;
-146;Nossa Senhora Aparecida com suporte de madeira;Religiosos;Jordilson e Rosilaine, Rosa e Claudenir Ricart;imensurável;;doador
-147;Relógio de pulso masculino dourado Olevs;Relógios e joias;Arno e Solei Voigt;200;;
-148;Kit Heesem: 4 facas, 1 tesoura e 1 descascador;Casa e cozinha;Arno e Solei Voigt;150;;
-149;Kit cozinha stainless steel 8 peças;Casa e cozinha;Arno e Solei Voigt;100;;
-150;Relógio despertador Handgun;Relógios e joias;Arno e Solei Voigt;150;;
+numero;nome;categoria;doador;valor;destaque;publicado;revisar
+101;Caixa térmica 28L Soprano;Casa e cozinha;Casa & Roça Nova Estrela;170;;;
+102;Chaleira com apito inox 3L;Casa e cozinha;Supermercado Vitória Nova Estrela;120;;;
+103;Sela cutiana em couro;Agro e ferramentas;Agropecuária Vitória Nova Estrela;1000;;;
+104;Bolsa Schutz tamanho único;Moda e acessórios;Intimamente;560;;;
+105;Relógio quadrado prateado;Relógios e joias;JFH Jóias;140;;;
+106;Relógio em aço coração;Relógios e joias;JFH Jóias;100;;;
+107;Relógio aro diamantado;Relógios e joias;JFH Jóias;110;;;
+108;Faca artesanal cabo com cavalo;Agro e ferramentas;Entre Laços;350;;;
+109;Kit terço e escapulário;Religiosos;Lindo Céu;40;;;
+110;Kit mensagem diária, terço e dezena;Religiosos;Lindo Céu;35;;;
+111;Terço colorido de pedra amora;Religiosos;Lindo Céu;35;;;
+112;Kit pulseira, chaveiro e pingente;Religiosos;Lindo Céu;35;;;
+113;Adorno Nossa Senhora de Guadalupe;Religiosos;Lindo Céu;70;;;
+114;Capacete de ciclismo High One;Esporte e lazer;Celso Klipel;165;;;
+115;Kit Tupperware: pote 7.800ml e pote 3.000ml;Casa e cozinha;Rosa Ricart;190;;;
+116;Réplica relógio Rolex;Relógios e joias;Padre Celine;1200;;;réplica de marca: decidir se mantém
+117;Camiseta da Seleção Brasileira autografada por 10 pentacampeões;Autografados e peças únicas;Heitor, presidente da Federação BR;imensurável;sim;;
+118;Kit Loiro Iluminado;Beleza;Shampoo & Cia;90;;;
+119;Kit Liso Perfeito;Beleza;Shampoo & Cia;90;;;
+120;Kit Reconstrução Acidificante;Beleza;Shampoo & Cia;90;;;
+121;Cachaça Ouro Xibolete;Bebidas;Elias Bins;250;;;
+122;Cachaça Prata Xibolete;Bebidas;Elias Bins;180;;;
+123;Vinho Cabernet Sauvignon Exportación;Bebidas;Padre Celine;65;;;
+124;Chapéu tam. 60 autografado por Bruno & Marrone;Autografados e peças únicas;Asrolim;imensurável;sim;;
+125;Chapéu Eldorado tam. 61 autografado por Ana Castela;Autografados e peças únicas;Asrolim;imensurável;sim;;
+126;Gamela em madeira;Casa e cozinha;Castanha;100;;;
+127;Fivela da 37ª Expoagro;Autografados e peças únicas;Asrolim;imensurável;sim;;
+128;Kit de pimentas artesanais (9 unidades);Casa e cozinha;Ronivon Procópio;130;;;
+129;Bíblia Sagrada edição 40 anos Igreja Universal;Religiosos;Padre Celine;150;;;
+130;Aroma de ambientes;Casa e cozinha;Leila Pratas;35;;;
+131;Conjunto colar e brinco semijoias;Relógios e joias;Mariza Rodrigues Jóias Folheadas;620;;;
+132;Kit 3 cafés naturais 250g;Casa e cozinha;Café Canindé;105;;;a arte escreve "Café Caindé"
+133;Kit 2 cafés fermentados 250g;Casa e cozinha;Café Canindé;90;;;
+134;Caneca térmica Duty 700ml;Casa e cozinha;Mercado Fortaleza;35;;;
+135;Caneca térmica Duty 700ml;Casa e cozinha;Mercado Fortaleza;35;;;
+136;Caneca térmica Duty 1 litro;Casa e cozinha;Mercado Fortaleza;60;;;
+137;Bicicleta Cairu aro 26 feminina Gênova;Esporte e lazer;Edite Alves de Medeiros;600;;;
+138;Sandália Carmen Steffens bege tam. 37;Moda e acessórios;Profª Marinalva Fernandes;290;;;
+139;Tênis Democrata tam. 39;Moda e acessórios;G Office;400;;;
+140;Kit Pepete e cinto Moleca tam. 38;Moda e acessórios;Mania de Moleca;240;;;
+141;Kit com 2 chaveiros;Moda e acessórios;Entre Folhas;60;;;
+142;Perfume Wepink Latina 100ml;Beleza;Pedro Luiz Paloni;160;;;
+143;2 livros "O Parque dos Lobos", de Henrique Prata;Livros;Hospital de Amor;150;;;
+144;Guirlanda personalizada Direito de Viver;Casa e cozinha;Helena - Varsóvia;200;;;
+145;Kit relação moto Fan 125 (2009 a 2013);Agro e ferramentas;Motobrás;140;;;
+146;Nossa Senhora Aparecida com suporte de madeira;Religiosos;Joedilson e Rosilaine, Rosa e Claudemir Ricart;imensurável;;;
+147;Relógio de pulso masculino dourado Olevs;Relógios e joias;Arno e Soldi Voigt;200;;;
+148;Kit Heesem: 4 facas, 1 tesoura e 1 descascador;Casa e cozinha;Arno e Soldi Voigt;150;;;
+149;Kit cozinha stainless steel 8 peças;Casa e cozinha;Arno e Soldi Voigt;100;;;
+150;Relógio despertador Handgun;Relógios e joias;Arno e Soldi Voigt;150;;;
+151;Anel solitário ouro 18k tam. 19;Relógios e joias;Safire Joalheria e Ótica (antiga Ônix);1100;sim;;a arte escreve "Ótia"
+152;Kit suplemento Nex: creatina pura e cafeína em cápsulas;Esporte e lazer;Sangio Produtos Naturais;140;;;
+153;Mini aspirador inteligente Kapbom;Casa e cozinha;Rosália Preatto Massagista;100;;;
+154;Headphone estéreo;Eletrônicos;Rosália Preatto Massagista;60;;;
+155;Kit relax: sabonete, vela, escalda-pés, máscara facial e máscara para mãos;Beleza;Patricia Voigt;90;;;
+156;Kit Natura: sabonetes, hidratante e body splash;Beleza;Anônimo;210;;;
+157;Garrafa térmica Soprano 2,5L;Casa e cozinha;Sicoob;60;;;
+158;Bolsa térmica Sicoob 30 anos com porta-latas;Casa e cozinha;Sicoob;100;;;
+159;Cadeira de praia Mor;Esporte e lazer;Cresol;70;;;
+160;Caixa térmica Lavita 34L com porta-latas;Casa e cozinha;Cresol;180;;;
+161;Assadeira com grelha suspensa;Casa e cozinha;Móveis do Lar;190;;;
+162;Jogo de toalha Dohler banho e rosto;Cama, mesa e banho;Rose Confecções;130;;;a arte escreve "Dholer"
+163;Jogo de panelas e utensílios 22 peças;Casa e cozinha;Goiabinha Válvulas;1400;sim;;
+164;Whisky Red Label 1L;Bebidas;Vaguinho Compra e Venda de Veículos;100;;;
+165;Faca artesanal pele branca cutelaria HA;Agro e ferramentas;Vaguinho Compra e Venda de Veículos;350;;;a arte escreve "pela branca"
+166;Kit Tupperware Line quadrado 8 peças;Casa e cozinha;Marinete, empreendedora Tupperware (Equipe Celebrate);730;;;
+167;Capacete Gow tam. 56;Esporte e lazer;Big Jhow Motos;120;;;
+168;Fonte decorativa relaxante;Casa e cozinha;Casa das Flores;280;;;
+169;Vaso para plantas nórdico em fibra marrom;Casa e cozinha;Casa das Flores;190;;;
+170;Caixa térmica Lavita 34L;Casa e cozinha;Sicredi;180;;;
+171;Garrafa térmica inox 2,5L;Casa e cozinha;Sicredi;140;;;
+172;Perfume feminino Dream Fearlessly 50ml;Beleza;Lena, revendedora Mary Kay;180;;;
+173;Sandália dourada Santa Lola tam. 36;Moda e acessórios;Fascínio Modas;250;;;
+174;Camiseta polo masculina Slim tam. G;Moda e acessórios;Fascínio Modas;260;;;
+175;Churrasqueira;Casa e cozinha;Agrocentro;285;;;
+176;Pistola veterinária 50ml;Agro e ferramentas;Agrocentro;420;;;
+177;Garrafa de café 1L;Casa e cozinha;Agrocentro;40;;;
+178;Copo térmico Soprano 310ml;Casa e cozinha;Agrocentro;110;;;
+179;Garrafa térmica Mor 2,5L;Casa e cozinha;Agrocentro;60;;;
+180;Sessão de bioestimulador de colágeno;Beleza;Clínica Áurea, Dra. Camila Homem;2400;sim;;
+181;Vale 1 aplicação de botox;Beleza;Clínica Áurea, Dra. Camila Homem;1000;;;
+184;Panela elétrica de arroz;Casa e cozinha;JVS;280;;;
+187;Garrafa térmica Mor 10L;Casa e cozinha;Nippon Móveis;360;;;
+188;Caixa térmica de isopor 50L;Casa e cozinha;Mercado Norte Sul;90;;;
+189;Caixa térmica de isopor 50L;Casa e cozinha;Francisca Vieira da Silva;90;;;
+190;Poltrona giratória;Casa e cozinha;Unilar Estofados;1100;sim;;
+191;Jogo de cama Super King 180 fios;Cama, mesa e banho;Rei do Pano;500;;;
+192;Kit cobreleito Queen Lynel;Cama, mesa e banho;Rei do Pano;1000;;;
+196;Kit de facas inox coloridas Palisad;Casa e cozinha;Anônimo;100;;;
+197;Conjunto Leve-me tam. M;Moda e acessórios;Le Vivian;150;;;
+198;Conjunto coração cravejado dourado;Relógios e joias;Mayara Sartori;230;;;
+199;Tênis branco nº 36;Moda e acessórios;Sapatinho de Luxo;160;;;
+200;Bolsa Chenson;Moda e acessórios;Mania de Moleca;390;;;
+201;Garrafa 2,5L com copo;Casa e cozinha;Hospital de Amor;;;;sem valor na arte
+202;Canivete edição limitada Hospital de Amor;Agro e ferramentas;Hospital de Amor;;;;sem valor na arte
+204;Canivete personalizado Hospital de Amor;Agro e ferramentas;Hospital de Amor;;;;sem valor na arte
+205;Conjunto churrasco;Casa e cozinha;Hospital de Amor;;;;sem valor na arte
+206;Faca pequena personalizada;Agro e ferramentas;Hospital de Amor;;;;sem valor na arte
+207;Conjunto faca e chaira;Agro e ferramentas;Hospital de Amor;;;;sem valor na arte
+208;Faca personalizada;Agro e ferramentas;Hospital de Amor;;;;sem valor na arte
+209;Conjunto faca grande e faca pequena;Agro e ferramentas;Hospital de Amor;;;;sem valor na arte
+210;Canivete com bainha para cinto;Agro e ferramentas;Hospital de Amor;;;;sem valor na arte
+211;Fivela infantil masculina;Moda e acessórios;Hospital de Amor;;;;sem valor na arte
+212;Fivela infantil feminina;Moda e acessórios;Hospital de Amor;;;;sem valor na arte
+214;Fivela adulto feminina;Moda e acessórios;Hospital de Amor;;;;sem valor na arte
+215;Caixa de tadalafila 20mg (4 comprimidos);;Hospital de Amor;;;não;medicamento de venda sob prescrição: fora do site até a organização decidir

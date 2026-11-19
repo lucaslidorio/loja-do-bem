@@ -136,7 +136,7 @@ class LojaTest extends TestCase
         $this->seed();
 
         $this->assertSame(1, Edicao::count());
-        $this->assertSame(10, Categoria::count());
+        $this->assertSame(12, Categoria::count());
         $this->get('/')->assertOk();
     }
 

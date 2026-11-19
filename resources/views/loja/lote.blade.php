@@ -28,7 +28,7 @@
                 <div class="relative overflow-hidden rounded-[18px] bg-papel-2">
                     @if ($src = $lote->imagemUrl())
                         <img src="{{ $src }}" alt="{{ $lote->nome }}" width="1600" height="2000" fetchpriority="high"
-                            @class(['aspect-[4/5] w-full', 'object-cover' => $lote->imagem_path, 'object-contain' => ! $lote->imagem_path, 'grayscale-[50%]' => $lote->arrematado()])>
+                            @class(['w-full object-cover', 'aspect-[4/5]' => $lote->imagem_path, 'aspect-square' => ! $lote->imagem_path, 'grayscale-[50%]' => $lote->arrematado()])>
                     @else
                         <div class="flex aspect-[4/5] items-end bg-[linear-gradient(160deg,var(--color-papel-2),var(--color-linha))] p-8">
                             <span class="font-display text-[9rem] font-black text-cartao/90">{{ $lote->numero }}</span>

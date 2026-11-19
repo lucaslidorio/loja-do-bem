@@ -8,14 +8,13 @@
     @endif
     {{ $attributes->class('group relative flex flex-col') }}>
     <a href="{{ $lote->url() }}" class="flex flex-1 flex-col rounded-[14px] focus-visible:outline-offset-4">
-        <div class="relative aspect-[4/5] overflow-hidden rounded-[14px] bg-papel-2">
+        <div @class(['relative overflow-hidden rounded-[14px] bg-papel-2', 'aspect-[4/5]' => $lote->imagem_path, 'aspect-square' => ! $lote->imagem_path])>
             @if ($src = $lote->imagemUrl('thumb'))
                 {{-- Só a arte (card com texto): mostra inteira, sem cortar --}}
                 <img src="{{ $src }}" alt="{{ $lote->nome }}" loading="lazy" decoding="async" width="640" height="800"
                     @class([
                         'size-full transition-transform duration-500 ease-[var(--ease-saida)] group-hover:scale-[1.035]',
-                        'object-cover' => $lote->imagem_path,
-                        'object-contain' => ! $lote->imagem_path,
+                        'object-cover' => true,
                         'grayscale-[60%]' => $lote->arrematado(),
                     ])>
             @else

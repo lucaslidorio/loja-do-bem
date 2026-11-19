@@ -67,7 +67,7 @@ MEDIA_DISK=s3
 ```sh
 php artisan lotes:importar --csv=database/dados/lotes-2026.csv --artes=~/artes-2026
 ```
-- O CSV `database/dados/lotes-2026.csv` já traz os **lotes 101 a 150**, com nome, categoria, doador, valor e destaque, transcritos das artes. A coluna `revisar` marca os nomes de doador que estavam pequenos demais para ler com certeza: confira no painel.
+- O CSV `database/dados/lotes-2026.csv` já traz **todos os 106 lotes da pasta (101 a 215)**, com nome, categoria, doador, valor e destaque, transcritos das artes. A coluna `revisar` marca o que precisa de uma olhada (erros de digitação nas artes, lotes sem valor). A coluna `publicado` com "não" deixa o lote fora do site.
 - Cada arte `LOTE-NNN.png` vai para o lote NNN. Lotes que existem só na arte (151 em diante) são criados **despublicados**, com o nome "Lote NNN". Complete o nome no painel e ligue "No site".
 - Pode rodar o comando de novo sem problema: ele atualiza o que já existe.
 

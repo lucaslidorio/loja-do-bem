@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $categorias = [
             'Autografados e peças únicas',
             'Casa e cozinha',
+            'Cama, mesa e banho',
             'Relógios e joias',
             'Moda e acessórios',
             'Beleza',
@@ -25,6 +26,7 @@ class DatabaseSeeder extends Seeder
             'Religiosos',
             'Esporte e lazer',
             'Agro e ferramentas',
+            'Eletrônicos',
             'Livros',
         ];
 

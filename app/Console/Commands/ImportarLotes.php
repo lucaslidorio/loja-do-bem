@@ -13,7 +13,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 
 #[Signature('lotes:importar
-    {--csv= : Planilha CSV (separada por ;) com numero;nome;categoria;doador;valor;destaque}
+    {--csv= : Planilha CSV (separada por ;) com numero;nome;categoria;doador;valor;destaque;publicado}
     {--artes= : Pasta com as artes LOTE-101.png, LOTE-102.jpg... (o "Baixar tudo" do Google Drive)}
     {--edicao= : Endereço da edição (ex.: 2026). Padrão: a edição atual}
     {--publicar : Publica no site os lotes criados só a partir das artes}')]
@@ -89,7 +89,10 @@ class ImportarLotes extends Command
                 'valor_referencia' => $imensuravel || $valor === '' ? null : (float) str_replace(['R$', '.', ','], ['', '', '.'], $valor),
                 'destaque' => in_array(Str::lower(trim($d['destaque'] ?? '')), ['sim', 's', '1', 'x'], true),
             ]);
-            if (! $lote->exists) {
+            $publicado = Str::lower(Str::ascii(trim($d['publicado'] ?? '')));
+            if (in_array($publicado, ['nao', 'n', '0'], true)) {
+                $lote->publicado = false;
+            } elseif (! $lote->exists || in_array($publicado, ['sim', 's', '1'], true)) {
                 $lote->publicado = true;
             }
             $lote->save();

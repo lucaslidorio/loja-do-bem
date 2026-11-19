@@ -18,7 +18,7 @@ class ImportarLotesTest extends TestCase
         Edicao::create(['numero' => 16, 'titulo' => '16º', 'slug' => '2026', 'cidade' => 'Rolim de Moura', 'uf' => 'RO', 'data_evento' => now()->addWeek(), 'ativa' => true]);
 
         $csv = tempnam(sys_get_temp_dir(), 'csv');
-        file_put_contents($csv, "numero;nome;categoria;doador;valor;destaque\n101;Caixa térmica;Casa e cozinha;Casa & Roça;170;\n124;Chapéu autografado;Autografados;Asrolim;imensurável;sim\n");
+        file_put_contents($csv, "numero;nome;categoria;doador;valor;destaque;publicado\n101;Caixa térmica;Casa e cozinha;Casa & Roça;170;;\n124;Chapéu autografado;Autografados;Asrolim;imensurável;sim;\n215;Item retido;;Hospital de Amor;;;não\n");
 
         $pasta = sys_get_temp_dir().'/artes-'.uniqid();
         mkdir($pasta);
@@ -27,7 +27,8 @@ class ImportarLotesTest extends TestCase
 
         $this->artisan('lotes:importar', ['--csv' => $csv, '--artes' => $pasta])->assertSuccessful();
 
-        $this->assertSame(3, Lote::count());
+        $this->assertSame(4, Lote::count());
+        $this->assertFalse(Lote::where('numero', 215)->first()->publicado);
         $this->assertEquals(170, Lote::where('numero', 101)->first()->valor_referencia);
         $this->assertNotNull(Lote::where('numero', 101)->first()->arte_path);
 
