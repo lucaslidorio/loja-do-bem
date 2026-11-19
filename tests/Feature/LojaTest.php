@@ -96,7 +96,7 @@ class LojaTest extends TestCase
         $this->lote(['doador_id' => $doador->id]);
 
         $this->assertSame('cafecaninde', $doador->fresh()->instagram);
-        $this->get('/2026/doadores')->assertOk()->assertSee('Café Canindé')->assertSee('Caixa térmica 28L');
+        $this->get('/2026/doadores')->assertOk()->assertSee('Café Canindé')->assertDontSee('Caixa térmica 28L');
     }
 
     public function test_so_uma_edicao_fica_ativa(): void

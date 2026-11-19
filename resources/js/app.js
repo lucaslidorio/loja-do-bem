@@ -107,18 +107,20 @@ Alpine.data('vitrine', ({ meus = [] } = {}) => ({
  * Contagem regressiva até o leilão.
  */
 Alpine.data('contagem', ({ alvo }) => ({
-    dias: 0, horas: 0, minutos: 0, acabou: false,
+    dias: 0, horas: 0, minutos: 0, segundos: 0, acabou: false,
     init() {
         this.tick();
-        this.timer = setInterval(() => this.tick(), 30_000);
+        this.timer = setInterval(() => this.tick(), 1000);
     },
     destroy() { clearInterval(this.timer); },
+    doisDigitos(n) { return String(n).padStart(2, '0'); },
     tick() {
         const falta = new Date(alvo).getTime() - Date.now();
-        if (falta <= 0) { this.acabou = true; return; }
+        if (falta <= 0) { this.acabou = true; clearInterval(this.timer); return; }
         this.dias = Math.floor(falta / 864e5);
         this.horas = Math.floor((falta % 864e5) / 36e5);
         this.minutos = Math.floor((falta % 36e5) / 6e4);
+        this.segundos = Math.floor((falta % 6e4) / 1e3);
     },
 }));
 

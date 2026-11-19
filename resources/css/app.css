@@ -100,8 +100,19 @@
     animation: pulso-coracao 420ms var(--ease-saida);
 }
 
+/* Contagem regressiva: cada número novo "cai" no lugar, como placar */
+@keyframes contagem-vira {
+    0% { transform: translateY(-70%); opacity: 0; filter: blur(2px); }
+    60% { transform: translateY(6%); opacity: 1; filter: blur(0); }
+    100% { transform: translateY(0); }
+}
+
+.contagem-vira {
+    animation: contagem-vira 380ms var(--ease-saida);
+}
+
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .coracao-pulsa { animation: none; }
+    .coracao-pulsa, .contagem-vira { animation: none; }
     *, *::before, *::after { transition-duration: 0.01ms !important; }
 }

@@ -32,7 +32,7 @@
     "src": "node_modules/@fontsource/big-shoulders-display/files/big-shoulders-display-latin-ext-900-normal.woff2"
   },
   "resources/css/app.css": {
-    "file": "assets/app-DHNwe0_w.css",
+    "file": "assets/app-DAyY7QkN.css",
     "name": "app",
     "names": [
       "app.css"
@@ -51,7 +51,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-CXmo9dTI.js",
+    "file": "assets/app-C-v_05lF.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true

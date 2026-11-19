@@ -77,9 +77,10 @@ class LojaController extends Controller
     {
         $doadores = Doador::query()
             ->whereHas('lotes', fn ($q) => $q->where('edicao_id', $edicao->getKey())->publicado())
-            ->with(['lotes' => fn ($q) => $q->where('edicao_id', $edicao->getKey())->publicado()->orderBy('numero')])
             ->orderBy('nome')
-            ->get();
+            ->get()
+            ->reject(fn (Doador $d) => in_array(\Illuminate\Support\Str::lower(\Illuminate\Support\Str::ascii($d->nome)), ['anonimo', 'anonima'], true))
+            ->values();
 
         return view('loja.doadores', compact('edicao', 'doadores'));
     }

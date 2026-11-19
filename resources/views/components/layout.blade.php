@@ -7,7 +7,7 @@
 ])
 @php
     $tituloPagina = $titulo ? "{$titulo} · Loja do Bem" : "Loja do Bem · {$edicao->titulo}";
-    $descricao ??= "Conheça os lotes do {$edicao->titulo}, dia {$edicao->data_evento->translatedFormat('d \\d\\e F')} em {$edicao->cidade}. Toda a renda vai para o Hospital de Amor.";
+    $descricao ??= "Conheça os lotes do {$edicao->titulo}, dia {$edicao->data_evento->translatedFormat('d \\d\\e F')} em {$edicao->cidade}. Toda a renda vai para o Hospital de Amor Amazônia.";
     $canonical ??= url()->current();
     $imagem ??= asset('og-padrao.jpg');
 @endphp
@@ -73,7 +73,7 @@
                 <p class="font-display text-3xl font-black uppercase text-marinho">{{ $edicao->titulo }}</p>
                 <p class="mt-3 max-w-sm text-sm text-tinta-2">
                     Evento voluntário de {{ $edicao->cidade }} – {{ $edicao->uf }}. Tudo o que é arrecadado vai para o
-                    Hospital de Amor, que trata pacientes com câncer pelo SUS, sem cobrar nada.
+                    Hospital de Amor Amazônia, em Porto Velho, que trata pacientes com câncer pelo SUS, sem cobrar nada.
                 </p>
             </div>
             <div class="text-sm">

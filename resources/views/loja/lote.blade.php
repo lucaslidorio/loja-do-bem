@@ -3,7 +3,7 @@
     $texto = $lote->textoCompartilhar(false);
     $descricaoMeta = "Lote {$lote->numero} do {$edicao->titulo}"
         .($lote->doador ? ", doado por {$lote->doador->nome}" : '')
-        .". Vai a leilão em {$data->format('d/m')}, em {$edicao->cidade}. Renda para o Hospital de Amor.";
+        .". Vai a leilão em {$data->format('d/m')}, em {$edicao->cidade}. Renda para o Hospital de Amor Amazônia.";
 @endphp
 <x-layout :edicao="$edicao" :titulo="'Lote '.$lote->numero.' · '.$lote->nome" :descricao="$descricaoMeta" :imagem="$lote->ogImagemUrl()" :canonical="$lote->url()">
     <x-slot:head>
@@ -106,7 +106,7 @@
                             </button>
                         </div>
                     </div>
-                    <p class="mt-3 text-sm text-tinta-2">O coração só guarda o lote na sua lista e mostra à organização o que está mais procurado. Não é um lance.</p>
+                    <p class="mt-3 text-sm text-tinta-2">O coração só guarda o lote na sua lista. Não é um lance.</p>
 
                     {{-- Como arrematar --}}
                     <div class="mt-10 rounded-2xl bg-cartao p-6 ring-1 ring-linha">

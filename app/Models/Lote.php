@@ -136,7 +136,7 @@ class Lote extends Model
 
         return "Lote {$this->numero}: {$this->nome}\n"
             ."Vai a leilão no {$edicao->titulo}, dia {$edicao->data_evento->format('d/m')} em {$edicao->cidade}. "
-            .'Toda a renda vai para o Hospital de Amor.'
+            .'Toda a renda vai para o Hospital de Amor Amazônia.'
             .($comUrl ? "\n{$this->url()}" : '');
     }
 }

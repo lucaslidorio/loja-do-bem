@@ -11,38 +11,28 @@
         @if ($doadores->isEmpty())
             <p class="mt-12 rounded-2xl border border-dashed border-linha px-6 py-16 text-center text-tinta-2">A lista de doadores aparece aqui assim que os lotes forem cadastrados.</p>
         @else
-            <ul class="mt-12 divide-y divide-linha border-y border-linha">
+            <ul class="mt-12 grid gap-x-8 border-t border-linha sm:grid-cols-2 lg:grid-cols-3">
                 @foreach ($doadores as $doador)
-                    <li class="grid gap-4 py-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] md:gap-10">
-                        <div class="flex items-center gap-4">
-                            @if ($logo = $doador->logoUrl())
-                                <img src="{{ $logo }}" alt="" loading="lazy" class="size-14 shrink-0 rounded-full bg-cartao object-contain ring-1 ring-linha">
-                            @else
-                                <span class="flex size-14 shrink-0 items-center justify-center rounded-full bg-rosa-claro font-display text-2xl font-black text-rosa" aria-hidden="true">
-                                    {{ mb_strtoupper(mb_substr($doador->nome, 0, 1)) }}
-                                </span>
-                            @endif
-                            <div class="min-w-0">
-                                <h2 class="text-lg font-bold leading-snug">{{ $doador->nome }}</h2>
+                    <li class="flex items-center gap-4 border-b border-linha py-5">
+                        @if ($logo = $doador->logoUrl())
+                            <img src="{{ $logo }}" alt="" loading="lazy" class="size-12 shrink-0 rounded-full bg-cartao object-contain ring-1 ring-linha">
+                        @else
+                            <span class="flex size-12 shrink-0 items-center justify-center rounded-full bg-rosa-claro font-display text-2xl font-black text-rosa" aria-hidden="true">
+                                {{ mb_strtoupper(mb_substr($doador->nome, 0, 1)) }}
+                            </span>
+                        @endif
+                        <div class="min-w-0">
+                            <h2 class="font-bold leading-snug">{{ $doador->nome }}</h2>
+                            @if ($doador->cidade || $doador->instagram)
                                 <p class="text-sm text-tinta-2">
-                                    {{ $doador->lotes->count() }} {{ $doador->lotes->count() === 1 ? 'lote' : 'lotes' }}
-                                    @if ($doador->cidade) · {{ $doador->cidade }} @endif
+                                    {{ $doador->cidade }}
+                                    @if ($doador->cidade && $doador->instagram) · @endif
                                     @if ($ig = $doador->instagramUrl())
-                                        · <a href="{{ $ig }}" target="_blank" rel="noopener" class="font-semibold text-rosa underline">{{ '@'.$doador->instagram }}</a>
+                                        <a href="{{ $ig }}" target="_blank" rel="noopener" class="font-semibold text-rosa underline">{{ '@'.$doador->instagram }}</a>
                                     @endif
                                 </p>
-                            </div>
+                            @endif
                         </div>
-                        <ul class="flex flex-wrap content-center gap-2">
-                            @foreach ($doador->lotes as $lote)
-                                <li>
-                                    <a href="{{ $lote->setRelation('edicao', $edicao)->url() }}" class="inline-flex items-center gap-2 rounded-full border border-linha bg-cartao py-1.5 pl-1.5 pr-3.5 text-sm hover:border-tinta/40">
-                                        <span class="rounded-full bg-papel-2 px-2 py-0.5 font-display font-bold text-rosa numeros">{{ $lote->numero }}</span>
-                                        <span class="max-w-[16rem] truncate">{{ $lote->nome }}</span>
-                                    </a>
-                                </li>
-                            @endforeach
-                        </ul>
                     </li>
                 @endforeach
             </ul>
