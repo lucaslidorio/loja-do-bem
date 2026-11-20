@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 # Termina a atualização depois que a Hostinger traz código novo do GitHub.
 #
-# A integração Git da Hostinger só faz o "git pull". Este script, rodado por um
-# Cron a cada minuto, percebe quando o commit mudou e então:
-#   1. roda composer install, se o composer.lock mudou
-#   2. cria as tabelas novas (migrate)
-#   3. refaz os caches de configuração, rotas e telas
-# Quando não há código novo, sai sem fazer nada.
+# A integração Git da Hostinger só faz o "git pull". Rode este script no
+# terminal (SSH), na pasta do projeto, quando a atualização precisar de:
+#   1. composer install (só roda se o composer.lock mudou)
+#   2. tabelas novas (migrate)
+#   3. caches de configuração, rotas e telas refeitos
 #
-# Uso manual:  bash deploy/pos-deploy.sh --forcar
+# Uso:  bash deploy/pos-deploy.sh --forcar
+#       (sem --forcar, só age se o commit mudou desde a última vez)
 # Variáveis opcionais: PHP_BIN (ex.: /opt/alt/php83/usr/bin/php), COMPOSER_BIN
 set -euo pipefail
 cd "$(dirname "$0")/.."

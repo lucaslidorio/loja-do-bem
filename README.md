@@ -96,20 +96,19 @@ php artisan lotes:importar --csv=database/dados/lotes-2026.csv --artes=~/artes-2
 
 ## Atualizar o site (Git da Hostinger)
 
-O site atualiza sozinho a cada push na `main`:
+O site atualiza a cada push na `main`, pelo webhook da integração Git da Hostinger
+(hPanel → **Avançado → GIT** → *Implantação automática*; a URL do webhook vai em
+GitHub → **Settings → Webhooks**, tipo `application/json`, evento *push*).
 
-1. **Webhook:** no hPanel, em **Avançado → GIT**, o repositório tem a opção de *Implantação automática*.
-   Copie a URL do webhook e cadastre no GitHub (**Settings → Webhooks → Add webhook**, tipo `application/json`, evento *Just the push event*).
-2. **Cron** (uma vez só): em **Avançado → Cron Jobs**, crie um job **a cada minuto** com o comando:
-   ```
-   cd /home/SEU_USUARIO/domains/SEU_DOMINIO/public_html/lojadobem && bash deploy/pos-deploy.sh >> storage/logs/deploy.log 2>&1
-   ```
-   A Hostinger só faz o `git pull`. Esse script percebe o commit novo e completa a atualização:
-   `composer install` (só se o `composer.lock` mudou), `migrate` e os caches. Sem código novo, ele não faz nada.
-   Se o PHP do Cron for antigo, coloque `PHP_BIN=/opt/alt/php83/usr/bin/php ` antes de `bash`.
-3. Depois de configurar, rode uma vez na mão: `bash deploy/pos-deploy.sh --forcar`.
+A Hostinger só faz o `git pull`. Quando a atualização trouxer tabela nova, pacote novo
+ou mudança de configuração/rotas, rode no terminal (SSH), na pasta do projeto:
+```sh
+bash deploy/pos-deploy.sh --forcar
+```
+Ele roda `composer install` (só se o `composer.lock` mudou), `migrate` e refaz os caches.
+Na dúvida, rode: não faz mal rodar sem necessidade.
 
-Para ver o que aconteceu nas atualizações: `tail -n 30 storage/logs/deploy.log`.
+Para conferir que o servidor recebeu o código: `git log -1 --oneline`.
 
 **O que não está no Git e fica só no servidor** (não se perde nas atualizações, mas faça cópia antes de apagar a pasta):
 - `.env`: senhas do banco e chaves da AWS
