@@ -29,6 +29,24 @@ class MidiaTest extends TestCase
         $this->assertSame([1600, 640, 1200, 630], [$w, $tw, $ow, $oh]);
     }
 
+    public function test_aws_url_vazio_usa_endereco_do_bucket(): void
+    {
+        putenv('AWS_URL=');
+        $this->refreshApplication();
+        config(['filesystems.disks.s3.bucket' => 'meu-bucket', 'filesystems.disks.s3.region' => 'sa-east-1', 'loja.media_disk' => 's3']);
+
+        $this->assertNull(config('filesystems.disks.s3.url'));
+
+        if (! class_exists(\Aws\S3\S3Client::class)) {
+            putenv('AWS_URL');
+
+            return; // sem o SDK da AWS instalado, confere só a configuração
+        }
+
+        $this->assertStringStartsWith('https://meu-bucket.s3.sa-east-1.amazonaws.com/', Midia::url('lotes/x/full.webp', 'thumb'));
+        putenv('AWS_URL');
+    }
+
     public function test_trocar_imagem_apaga_a_antiga(): void
     {
         Storage::fake('public');
