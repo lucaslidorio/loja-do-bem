@@ -138,9 +138,18 @@ Alpine.data('compartilhar', ({ titulo, texto, url, whatsapp }) => ({
     async copiar() {
         try {
             await navigator.clipboard.writeText(url);
-            this.copiado = true;
-            setTimeout(() => (this.copiado = false), 2200);
-        } catch (e) { /* sem permissão: ignora */ }
+        } catch (e) {
+            // navegador sem permissão para a área de transferência: copia do jeito antigo
+            const campo = Object.assign(document.createElement('textarea'), { value: url });
+            campo.style.position = 'fixed';
+            campo.style.opacity = '0';
+            document.body.append(campo);
+            campo.select();
+            document.execCommand('copy');
+            campo.remove();
+        }
+        this.copiado = true;
+        setTimeout(() => (this.copiado = false), 2200);
     },
 }));
 

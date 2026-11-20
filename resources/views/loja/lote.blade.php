@@ -94,15 +94,17 @@
                 @unless ($lote->arrematado())
                     <div class="mt-8 flex flex-wrap gap-3">
                         <x-botao-interesse :lote="$lote" :ativo="$interessado" grande />
-                        <div x-data="compartilhar({ titulo: @js('Lote '.$lote->numero.' · '.$lote->nome), texto: @js($texto), url: @js($lote->url()), whatsapp: @js('https://wa.me/?text='.rawurlencode($texto."\n".$lote->url())) })" class="flex gap-3">
+                        <div x-data="compartilhar({ titulo: @js('Lote '.$lote->numero.' · '.$lote->nome), texto: @js($texto), url: @js($lote->url()), whatsapp: @js('https://wa.me/?text='.rawurlencode($texto."\n".$lote->url())) })" class="flex flex-wrap gap-3">
                             <button type="button" @click="abrir()"
                                 class="inline-flex h-12 items-center gap-2 rounded-full bg-marinho px-5 font-semibold text-white transition-colors hover:bg-marinho-2">
-                                <x-icone nome="arrow-up-on-square" class="size-[1.15rem]" /> Compartilhar
+                                <x-icone nome="share" class="size-[1.15rem]" /> Compartilhar
                             </button>
-                            <button type="button" @click="copiar()" class="inline-flex size-12 items-center justify-center rounded-full border-2 border-tinta/15 bg-cartao transition-colors hover:border-marinho"
-                                :aria-label="copiado ? 'Link copiado' : 'Copiar link'" aria-label="Copiar link">
+                            <button type="button" @click="copiar()" title="Copia o endereço deste lote para você colar onde quiser"
+                                class="inline-flex h-12 items-center gap-2 rounded-full border-2 border-tinta/15 bg-cartao px-5 font-semibold transition-colors hover:border-marinho hover:text-marinho"
+                                :class="copiado && 'border-mata/50 text-mata hover:border-mata/50 hover:text-mata'">
                                 <x-icone nome="link" class="size-5" x-show="!copiado" />
-                                <x-icone nome="check" class="size-5 text-mata" x-show="copiado" x-cloak />
+                                <x-icone nome="check" class="size-5" x-show="copiado" x-cloak />
+                                <span x-text="copiado ? 'Link copiado' : 'Copiar link'">Copiar link</span>
                             </button>
                         </div>
                     </div>

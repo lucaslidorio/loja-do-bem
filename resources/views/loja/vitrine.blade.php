@@ -26,7 +26,7 @@
                         x-data="compartilhar({ titulo: @js('Loja do Bem · '.$edicao->titulo), texto: @js($textoLoja), url: @js($urlLoja), whatsapp: @js('https://wa.me/?text='.rawurlencode($textoLoja."\n".$urlLoja)) })"
                         @click="abrir()"
                         class="inline-flex h-12 items-center gap-2 rounded-full border-2 border-tinta/15 bg-cartao px-6 font-semibold transition-colors hover:border-marinho hover:text-marinho">
-                        <x-icone nome="arrow-up-on-square" class="size-[1.15rem]" /> Mandar para alguém
+                        <x-icone nome="share" class="size-[1.15rem]" /> Compartilhar
                     </button>
                 </div>
             </div>
@@ -196,7 +196,7 @@
                 <div class="mt-8 flex flex-wrap gap-3">
                     <a href="https://wa.me/?text={{ rawurlencode($textoLoja."\n".$urlLoja) }}" target="_blank" rel="noopener"
                         class="inline-flex h-12 items-center gap-2 rounded-full bg-white px-6 font-semibold text-rosa transition-colors hover:bg-rosa-claro">
-                        <x-icone nome="arrow-up-on-square" class="size-[1.15rem]" /> Divulgar no WhatsApp
+                        <x-icone nome="share" class="size-[1.15rem]" /> Divulgar no WhatsApp
                     </a>
                     <a href="{{ route('doadores', $edicao) }}" class="inline-flex h-12 items-center gap-2 rounded-full border-2 border-white/50 px-6 font-semibold text-white transition-colors hover:border-white">
                         Conheça quem doou

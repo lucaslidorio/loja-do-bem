@@ -38,7 +38,7 @@
             </button>
             <a href="https://wa.me/?text={{ rawurlencode($textoCompartilhar."\n".route('resultado', $edicao)) }}" target="_blank" rel="noopener"
                 class="inline-flex h-12 items-center gap-2 rounded-full border-2 border-tinta/15 bg-cartao px-6 font-semibold transition-colors hover:border-marinho hover:text-marinho">
-                <x-icone nome="arrow-up-on-square" class="size-[1.15rem]" /> Mandar no WhatsApp
+                <x-icone nome="share" class="size-[1.15rem]" /> Mandar no WhatsApp
             </a>
         </div>
 
