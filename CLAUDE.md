@@ -10,7 +10,7 @@ O site serve para divulgar os lotes e engajar (compartilhar no WhatsApp, marcar 
 - Painel: Filament 5 em `/painel` (`app/Filament`)
 - Loja pública: Blade + Tailwind 4 + Alpine (`resources/views/loja`, `resources/views/components`, `resources/js/app.js`)
 - Imagens: S3 (`MEDIA_DISK=s3`), convertidas para WebP por `App\Support\Midia` (Intervention Image 4, driver GD)
-- Hospedagem: Hostinger compartilhada. Sem Node no servidor: `npm run build` é feito localmente e `public/build` vai versionado.
+- Hospedagem: Hostinger compartilhada, deploy pela integração Git (webhook na `main`) + Cron rodando `deploy/pos-deploy.sh` (composer/migrate/caches). Sem Node no servidor: `npm run build` é feito localmente e `public/build` vai versionado. `.env` e o `.htaccess` da raiz (modelo em `deploy/hostinger.htaccess`) existem só no servidor.
 
 ## Conceitos
 

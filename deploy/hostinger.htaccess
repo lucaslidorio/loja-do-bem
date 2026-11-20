@@ -1,0 +1,13 @@
+# Modelo do .htaccess da raiz do projeto na Hostinger.
+# Copie para a raiz (ao lado do artisan) com:  cp deploy/hostinger.htaccess .htaccess
+#
+# O subdomínio aponta para a pasta do projeto; estas regras mandam tudo para
+# public/, que é onde o Laravel atende. Assim .env, vendor/, storage/ etc.
+# nunca são servidos diretamente.
+RewriteEngine On
+
+# Permite que o Laravel processe os arquivos da pasta public
+RewriteRule ^public/ - [L]
+
+# Encaminha todas as requisições para public
+RewriteRule ^(.*)$ public/$1 [L]

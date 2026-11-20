@@ -94,9 +94,32 @@ php artisan lotes:importar --csv=database/dados/lotes-2026.csv --artes=~/artes-2
 - Cada arte `LOTE-NNN.png` vai para o lote NNN. Lotes que existem só na arte (151 em diante) são criados **despublicados**, com o nome "Lote NNN". Complete o nome no painel e ligue "No site".
 - Pode rodar o comando de novo sem problema: ele atualiza o que já existe.
 
+## Atualizar o site (Git da Hostinger)
+
+O site atualiza sozinho a cada push na `main`:
+
+1. **Webhook:** no hPanel, em **Avançado → GIT**, o repositório tem a opção de *Implantação automática*.
+   Copie a URL do webhook e cadastre no GitHub (**Settings → Webhooks → Add webhook**, tipo `application/json`, evento *Just the push event*).
+2. **Cron** (uma vez só): em **Avançado → Cron Jobs**, crie um job **a cada minuto** com o comando:
+   ```
+   cd /home/SEU_USUARIO/domains/SEU_DOMINIO/public_html/lojadobem && bash deploy/pos-deploy.sh >> storage/logs/deploy.log 2>&1
+   ```
+   A Hostinger só faz o `git pull`. Esse script percebe o commit novo e completa a atualização:
+   `composer install` (só se o `composer.lock` mudou), `migrate` e os caches. Sem código novo, ele não faz nada.
+   Se o PHP do Cron for antigo, coloque `PHP_BIN=/opt/alt/php83/usr/bin/php ` antes de `bash`.
+3. Depois de configurar, rode uma vez na mão: `bash deploy/pos-deploy.sh --forcar`.
+
+Para ver o que aconteceu nas atualizações: `tail -n 30 storage/logs/deploy.log`.
+
+**O que não está no Git e fica só no servidor** (não se perde nas atualizações, mas faça cópia antes de apagar a pasta):
+- `.env`: senhas do banco e chaves da AWS
+- `.htaccess` da raiz: o modelo está em `deploy/hostinger.htaccess` (`cp deploy/hostinger.htaccess .htaccess`)
+
+Lembre de rodar `npm run build` e commitar `public/build` antes do push quando mexer no CSS/JS: o servidor não roda npm.
+
 ## Configurar o S3 (AWS)
 
-1. **Bucket:** crie na região `sa-east-1` (São Paulo). Deixe "Object Ownership" como *ACLs disabled*.
+1. **Bucket:** crie de preferência na região `sa-east-1` (São Paulo). O bucket atual está em `us-east-2` (Ohio), o que também funciona: o importante é que `AWS_DEFAULT_REGION` e `AWS_URL` usem a região certa. Deixe "Object Ownership" como *ACLs disabled*.
    Em "Block public access", desmarque só as duas opções sobre **bucket policies**.
 2. **Bucket policy** (leitura pública só das imagens):
 ```json
