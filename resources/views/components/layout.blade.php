@@ -103,7 +103,7 @@
         </div>
         <div class="border-t border-linha">
             <p class="mx-auto max-w-6xl px-4 py-5 text-sm text-tinta-2 sm:px-6">
-                Site desenvolvido por
+                Desenvolvido com amor por
                 <a href="https://podiumsolutions.com.br/" target="_blank" rel="noopener" class="font-semibold text-tinta underline decoration-linha hover:decoration-rosa">Podium Solutions</a>
             </p>
         </div>
